@@ -32,7 +32,19 @@ $(document).ready(function() {
     if(currentDay === null)
     {
         currentDay = workDay;
+        currentDay.dateDay =  moment().format("MMM Do");
         localStorage["currentDay"] = JSON.stringify(currentDay);
+    }
+    else
+    {
+        var today = moment().format("MMM Do");
+        if(currentDay.dateDay != today){
+            currentDay = workDay;
+            currentDay.dateDay =  moment().format("MMM Do");
+            localStorage["currentDay"] = JSON.stringify(currentDay);
+
+        }
+
     }
    
     
